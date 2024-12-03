@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"dev:remote": "vite --host --open",
-		"build": "pwa-assets-generator && vite build",
+		"build": "vite build",
+    "start": "vite preview --port 3100",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tscon fig.json",
 		"test": "vitest run",
