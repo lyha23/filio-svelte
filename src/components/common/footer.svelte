@@ -4,6 +4,10 @@
   import { ButtonTypes } from './button.store';
 
   let { ref: footerRef } = MENULINKS[4];
+
+  function gotoGov() {
+		window.location.href = 'https://beian.miit.gov.cn/'
+	}
 </script>
 
 <footer
@@ -66,7 +70,13 @@
         ></Button>
       </div>
       <h2 class="text-center text-sm sm:text-base mt-8">
-        Designed and Developed with ❤️ by Ayush
+        <div class="p-5 flex justify-end fixed bottom-0">
+          <div class="mt-8 text-start">
+            <span class="icon-banquan iconfont"
+            ></span>
+            <button onclick={gotoGov} class="block">沪ICP备2022004472号-2</button>
+          </div>
+        </div>
       </h2>
     </div>
   </div>
