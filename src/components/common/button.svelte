@@ -22,9 +22,7 @@
   {...otherProps}
   on:click="{onClick}"
   {href}
-  class:ml-3="{classes == 'ml-3'}"
-  class:mr-3="{classes == 'mr-3'}"
-  class="{`${getButtonTypeStyles(type)} buttonClasses link`}"
+  class="{`${getButtonTypeStyles(type)} buttonClasses link ${classes}`}"
 >
   {name}
 </a>
@@ -33,7 +31,6 @@
   .buttonClasses {
     @apply py-2 px-7 font-medium rounded text-base md:text-xl tracking-wide  duration-300 flex items-center;
   }
-
   .ml-3 {
     @apply ml-3;
   }
