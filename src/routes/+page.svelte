@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
   import { METADATA } from '$lib/constants';
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -36,25 +37,25 @@
   };
 
   onMount(() => {
-    debouncedDimensionCalculator();
-    window.addEventListener('resize', debouncedDimensionCalculator);
+    browser&&debouncedDimensionCalculator();
+    browser&&window.addEventListener('resize', debouncedDimensionCalculator);
   });
 
   onDestroy(() => {
-    if (typeof window !== 'undefined') {
+    if (browser) {
       window.removeEventListener('resize', debouncedDimensionCalculator);
     }
   });
 </script>
 
-<head>
+<svelte:head>
   <meta name="twitter:card" content="summary_large_image" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="{METADATA.description}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
@@ -68,7 +69,7 @@
   <meta property="og:image:height" content="800" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <title>{METADATA.title}</title>
-</head>
+</svelte:head>
 <Header />
 <ProgressIndicator />
 <Cursor {isDesktop} />

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
   import { isLoading } from 'svelte-i18n';
   import { onMount } from 'svelte';
   import '$lib/i18n';
@@ -16,15 +17,11 @@
   };
 
   const installApp = () => {
-    // Show the original saved install prompt
     deferredPrompt?.prompt();
 
-    // Wait for the user to respond to the prompt
     deferredPrompt?.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        // Remove the stored preference
         localStorage.removeItem('install-denied');
-        // Hide the modal
         toggleModal();
       }
     });
@@ -37,7 +34,8 @@
   };
 
   onMount(() => {
-    const isInstalled = window.matchMedia('(display-mode: standalone)').matches;
+    if (browser){
+      const isInstalled = window.matchMedia('(display-mode: standalone)').matches;
     if (isInstalled) {
       // Remove the stored preference
       localStorage.removeItem('install-denied');
@@ -57,6 +55,7 @@
       deferredPrompt = event as BeforeInstallPromptEvent;
       showInstallPrompt();
     });
+    }
   });
 </script>
 
