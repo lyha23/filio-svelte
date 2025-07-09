@@ -18,7 +18,7 @@ if it helps you, you can star me.
 First, run the development server: 
 >首先安装该安装的package
 ```bash
-npm install
+pnpm install
 # or
 yarn
 ```
@@ -26,7 +26,7 @@ Second, run the development server:
 >第二步, 运行
 
 ```bash
-npm run dev
+pnpm run dev
 # or
 yarn dev
 ```
@@ -39,3 +39,12 @@ yarn dev
 | {} | v-bind| {} |
 | jsx parameter| defineProps | export |
 |MutableRefObject|Ref<HeepElement>| HTTPElement|
+
+## 对比 
+| Vue | svelte|
+| -|--|
+|运行时框架 | 编译时框架|
+|Virtual DOM | 静态模板|
+|class variable | 无class variable|
+| ?? | 官方调试工具|
+| nuxt | sveltekit|

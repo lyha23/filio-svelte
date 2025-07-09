@@ -1,39 +1,41 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
+    "rootDirs": [".", "./.svelte-kit/types"],
     "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    },
     "resolveJsonModule": true,
-    /**
-     * Typecheck JS in `.svelte` and `.js` files by default.
-     * Disable checkJs if you'd like to use dynamic types in JS.
-     * Note that setting allowJs false does not prevent the use
-     * of JS in `.svelte` files.
-     */
+    "types": ["./src/types/app.d.ts"],
     "allowJs": true,
     "checkJs": true,
+    "strict": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-    "types": [
-      "vitest/globals",
-      "./src/types/app.d.ts"
-    ]
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
   "include": [
+    ".svelte-kit/ambient.d.ts",
+    ".svelte-kit/types/**/$types.d.ts",
     "src/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.js",
-    "src/**/*.svelte", 
-    "src/constants.ts",
+    "src/**/*.svelte",
+    "vite.config.ts"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "exclude": [
+    "node_modules/**",
+    "src/service-worker.js",
+    "src/service-worker.ts",
+    "src/service-worker.d.ts"
   ]
 }

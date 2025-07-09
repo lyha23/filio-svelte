@@ -9,9 +9,9 @@
 
 <template>
   <header
-    class="w-full fixed top-0 py-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent"
+    class="pointer-events-none w-full fixed top-0 py-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent"
   >
-    <div class="flex justify-between section-container">
+    <div class="flex justify-between section-container pointer-events-auto">
       <a href="#home" class="link">
         <img
           src="/logo.svg"
